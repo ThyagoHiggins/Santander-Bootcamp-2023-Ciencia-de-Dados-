@@ -1,3 +1,7 @@
+#confesso que tive dificuldades. As aulas não 
+#trouxeram ferramentas para um CRUD.
+
+
 import csv
 
 analise = list()
