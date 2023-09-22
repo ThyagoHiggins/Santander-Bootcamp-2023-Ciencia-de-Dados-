@@ -1,27 +1,27 @@
-import pandas as pd 
-import requests
-import json 
+import csv
 
-df = pd.read_csv(
-    'Projeto IA/cliente.csv',
-     encoding= 'utf-8',
-     #sep=';' usado quando separação for ;
-     #index_col= 'nome'quando quer transformar index
+analise = list()
 
-)
+saldo = open('Projeto IA/cliente.csv')
+tabela = csv.reader(saldo)
 
-for saldo in df: 
-    if saldo[2] < '0':
-        print("Saldo negativo")
-        saldo.append('Sem Grana')
-        df[3].append(0)
+for saldos in saldo:
+    if saldos[3] == 'sem saldo':
+        saldos.append('Você precisa de recursos')
+        analise.append(saldo)
+    elif saldo[3] =='saldo positivo':    
+        saldos.append('sem obs')
+        analise.append(saldo)
+    elif saldo[3] == 'saldo negativo':
+        saldos.append('Você está usando o cheque especial')
+        analise.append(saldo)
+    elif saldo[3] == 'saldo para investimento':
+        saldos.append('vamos investir?')
+        analise.append(saldo)
 
+nova_tabela = open('cliente.csv','w',newline ='')
+dica= csv.writer(nova_tabela, delimiter=',')
+dica.writerows(analise)
 
-#for negativo in df:
-    #saldo = negativo.filter({'saldo'})
-    #print(saldo)
-    
-    #if negativo['saldo']< 0:
-        #negativo['Obs'] = 'ATENÇÃO USANDO CHEQUE ESPECIAL'
-        
-#print(df.head())
+nova_tabela.close()
+saldo.close()

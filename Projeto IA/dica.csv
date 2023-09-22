@@ -1,0 +1,7 @@
+id ,cliente,saldo,Obs,
+1,Fábio,0,sem saldo,Você precisa de recursos
+2,Cássio,12,saldo positivo,sem obs
+3,Lidia,-631,saldo negativo,Você está usando o cheque especial
+4,Selma,124,saldo positivo,sem obs
+5,Joao,-896,saldo negativo,Você está usando o cheque especial
+6,Telma,1100,saldo para investimento,vamos investir?
